@@ -1,0 +1,41 @@
+﻿using System.Windows;
+using System.Windows.Input;   
+using Logic;
+
+namespace NoteBook
+{
+    public partial class EditUnitsWindow : Window
+    {
+        private Notebook notebook;
+
+        public EditUnitsWindow(Notebook nb)
+        {
+            InitializeComponent();
+            this.notebook = nb;
+            DrawUnits();
+        }
+
+        private void DrawUnits()
+        {
+            units.Items.Clear();
+            foreach (var item in notebook.ListUnits())
+                units.Items.Add(item);
+        }
+
+        // Double-clic ouvre la 3e fenêtre
+        private void EditUnit(object sender, MouseButtonEventArgs e)
+        {
+            if (units.SelectedItem is Unit u)
+            {
+                EditElementWindow third = new EditElementWindow(u);
+                if (third.ShowDialog() == true)
+                {
+                    DrawUnits();   
+                }
+            }
+        }
+
+        private void AddUnit(object sender, RoutedEventArgs e) { }
+        private void RemoveUnit(object sender, RoutedEventArgs e) { }
+    }
+}

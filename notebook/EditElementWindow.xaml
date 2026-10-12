@@ -1,0 +1,50 @@
+﻿<Window x:Class="NoteBook.EditElementWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Edit Educational Element" Height="250" Width="400"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Ligne 0 : Name -->
+        <Label Grid.Row="0" Grid.Column="0"
+               Content="Name :"
+               VerticalAlignment="Center"
+               Margin="0,0,10,10"/>
+
+        <TextBox Grid.Row="0" Grid.Column="1"
+                 x:Name="name"
+                 Height="25"
+                 Margin="0,0,0,10"/>
+
+        <!-- Ligne 1 : Coefficient -->
+        <Label Grid.Row="1" Grid.Column="0"
+               Content="Coefficient :"
+               VerticalAlignment="Center"
+               Margin="0,0,10,20"/>
+
+        <TextBox Grid.Row="1" Grid.Column="1"
+                 x:Name="coef"
+                 Height="25"
+                 Width="100"
+                 HorizontalAlignment="Left"
+                 Margin="0,0,0,20"/>
+
+        <!-- Ligne 2 : Bouton Validate -->
+        <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                Content="Validate"
+                Width="100" Height="30"
+                HorizontalAlignment="Center"
+                Click="Validate"/>
+    </Grid>
+</Window>

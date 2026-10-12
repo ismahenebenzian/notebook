@@ -1,4 +1,4 @@
-﻿<Window x:Class="notebook.MainWindow"
+﻿<Window x:Class="NoteBook.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Carnet de notes" Height="400" Width="600"
@@ -22,10 +22,12 @@
         <!-- Boutons haut -->
         <Button Grid.Row="0" Grid.Column="0"
                 Content="Saisir les matières"
-                Margin="20"/>
+                Margin="20" 
+                Click="GoEditUnits" />
         <Button Grid.Row="0" Grid.Column="2"
                 Content="Rentrer un examen"
-                Margin="20"/>
+                Margin="20"
+                />
 
         <!-- Image -->
         <Image Grid.Row="1" Grid.Column="1"

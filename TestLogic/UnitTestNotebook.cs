@@ -1,10 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Xunit;
+using Logic;
+using System.Net.NetworkInformation;
 
 namespace TestLogic
 {
-    internal class UnitTestNotebook
+    public class UnitTestNotebook
     {
+        [Fact]
+        public void TestListUnits()
+        {
+            // creer carnet vide
+            Notebook nb = new Notebook();
+
+            var list = nb.ListUnits();
+            Assert.NotNull(list);
+            Assert.Empty(list);
+        }         
     }
 }

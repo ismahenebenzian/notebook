@@ -22,6 +22,14 @@ namespace Logic
         {
             return units.ToArray();
         }
+
+        public void AddUnit(Unit unit)
+        {
+            if (units.Find(u => u.Name == unit.Name) != null)
+                    throw new Exception("Une unité avec le même nom existe déjà");
+            units.Add(unit);
+        }
+
         #endregion
     }
 }

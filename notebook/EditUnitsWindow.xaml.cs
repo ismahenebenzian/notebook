@@ -35,7 +35,25 @@ namespace NoteBook
             }
         }
 
-        private void AddUnit(object sender, RoutedEventArgs e) { }
         private void RemoveUnit(object sender, RoutedEventArgs e) { }
+
+
+        private void AddUnit(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Unit newUnit = new Unit();
+                EditElementWindow third = new EditElementWindow(newUnit);
+                if (third.ShowDialog() == true)
+                {
+                    notebook.AddUnit(newUnit);
+                    DrawUnits();
+                }
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+            }
+        }
     }
 }

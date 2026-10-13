@@ -34,7 +34,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Padding="10"
-                MinWidth="80"/>
+                MinWidth="80" MouseDoubleClick="AddUnit"/>
 
         <!-- Bouton Remove -->
         <Button Grid.Row="2" Grid.Column="1"

@@ -11,6 +11,7 @@ namespace Logic
     {
         #region Attributes
         private List<Module> modules = new List<Module>();
+
         #endregion
 
         #region Operations

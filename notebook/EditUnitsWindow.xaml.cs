@@ -22,7 +22,6 @@ namespace NoteBook
                 units.Items.Add(item);
         }
 
-        // Double-clic ouvre la 3e fenêtre
         private void EditUnit(object sender, MouseButtonEventArgs e)
         {
             if (units.SelectedItem is Unit u)
@@ -35,9 +34,6 @@ namespace NoteBook
             }
         }
 
-        private void RemoveUnit(object sender, RoutedEventArgs e) { }
-
-
         private void AddUnit(object sender, RoutedEventArgs e)
         {
             try
@@ -47,6 +43,21 @@ namespace NoteBook
                 if (third.ShowDialog() == true)
                 {
                     notebook.AddUnit(newUnit);
+                    DrawUnits();
+                }
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+            }
+        }
+        private void RemoveUnit(object sender, RoutedEventArgs e)
+        {
+            try
+            {       
+                if (units.SelectedItem is Unit unit)
+                {
+                    notebook.RemoveUnit(unit);
                     DrawUnits();
                 }
             }

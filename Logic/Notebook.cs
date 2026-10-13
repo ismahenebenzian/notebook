@@ -30,6 +30,12 @@ namespace Logic
             units.Add(unit);
         }
 
+        public void RemoveUnit(Unit unit)
+        {
+            units.Remove(unit);
+        }
+
+
         #endregion
     }
 }

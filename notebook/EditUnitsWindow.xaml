@@ -42,6 +42,6 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Padding="10"
-                MinWidth="80"/>     
+                MinWidth="80" MouseDoubleClick="RemoveUnit"/>     
     </Grid>
 </Window>

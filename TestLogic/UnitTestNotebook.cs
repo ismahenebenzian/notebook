@@ -39,5 +39,18 @@ namespace TestLogic
             Assert.Equal(2, units.Length);
             Assert.Same(u2, units[1]);
         }
+
+        [Fact]
+        public void RemoveUnit_SupprimeBienUneUnite()
+        {
+            Notebook nb = new Notebook();
+            Unit u1 = new Unit();
+            u1.Name = "Test";
+            u1.Coef = 1;
+            nb.AddUnit(u1);
+            nb.RemoveUnit(u1);
+            var units = nb.ListUnits();
+            Assert.Empty(units);
+        }
     }
 }

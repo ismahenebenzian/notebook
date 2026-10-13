@@ -16,13 +16,15 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <!-- Label : "Cours Units :" -->
         <Label Grid.Row="0" 
                Content="Cours Units :"
-               VerticalAlignment="Bottom"
-               Margin="10"
+               VerticalAlignment="Top"
+               Margin="10,44,10,0"
                Grid.ColumnSpan="2"/>
 
         <!-- ListBox pour afficher les unités -->
@@ -42,6 +44,32 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Padding="10"
-                MinWidth="80" MouseDoubleClick="RemoveUnit"/>     
+                MinWidth="80" MouseDoubleClick="RemoveUnit"/>
+
+        <!-- ListBox pour afficher les modules -->
+        <ListBox x:Name="Modules" MouseDoubleClick="EditModules" Grid.Row="1" Grid.ColumnSpan="2"  Margin="10,10,10,10" Grid.Column="2"/>
+        
+        <Label 
+            Content="Modules :"
+            VerticalAlignment="Top"
+            Margin="10,44,10,0"
+            Grid.ColumnSpan="2" Grid.Column="2"/>
+
+        <!-- Bouton Add -->
+        <Button Grid.Row="2" Grid.Column="2"
+        Content="Add"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Padding="10"
+        MinWidth="80" MouseDoubleClick="AddUnit"/>
+
+        <!-- Bouton Remove -->
+        <Button Grid.Row="2" Grid.Column="3"
+        Content="Remove"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Padding="10"
+        MinWidth="80" MouseDoubleClick="RemoveUnit"/>
+
     </Grid>
 </Window>

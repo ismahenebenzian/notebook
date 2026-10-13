@@ -28,7 +28,7 @@
                Grid.ColumnSpan="2"/>
 
         <!-- ListBox pour afficher les unités -->
-        <ListBox x:Name="units" MouseDoubleClick="EditUnit" Grid.Row="1" Grid.ColumnSpan="2"  Margin="10"/>
+        <ListBox x:Name="units" SelectionChanged="SelectUnit" MouseDoubleClick="EditUnit" Grid.Row="1" Grid.ColumnSpan="2"  Margin="10"/>
 
         <!-- Bouton Add -->
         <Button Grid.Row="2" Grid.Column="0"
@@ -47,7 +47,7 @@
                 MinWidth="80" MouseDoubleClick="RemoveUnit"/>
 
         <!-- ListBox pour afficher les modules -->
-        <ListBox x:Name="Modules" MouseDoubleClick="EditModules" Grid.Row="1" Grid.ColumnSpan="2"  Margin="10,10,10,10" Grid.Column="2"/>
+        <ListBox x:Name="Modules"  Grid.Row="1" Grid.ColumnSpan="2"  Margin="10,10,10,10" Grid.Column="2"/>
         
         <Label 
             Content="Modules :"

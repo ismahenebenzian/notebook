@@ -1,6 +1,7 @@
-﻿using System.Windows;
+﻿using Logic;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;   
-using Logic;
 
 namespace NoteBook
 {
@@ -66,5 +67,22 @@ namespace NoteBook
                 MessageBox.Show(x.Message);
             }
         }
+
+        private void DrawModules()
+        {
+            if (units.SelectedItem is Unit unit)
+            {
+                var list = unit.ListModules();
+                Modules.Items.Clear();
+                foreach (Module m in list)
+                    Modules.Items.Add(m);
+            }
+        }
+        private void SelectUnit(object sender, SelectionChangedEventArgs e)
+        {
+            DrawModules();
+        }
+
+        
     }
 }

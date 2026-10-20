@@ -11,6 +11,7 @@ namespace Logic
     {
         #region Attributes
         private List<Unit> units = new List<Unit>();
+        private List<Exam> exams = new List<Exam>();
         #endregion
 
         #region Operations
@@ -34,6 +35,28 @@ namespace Logic
         public void RemoveUnit(Unit unit)
         {
             units.Remove(unit);
+        }
+
+        /// <summary>
+        /// Liste tous les modules de toutes les unités (section 8 du TP)
+        /// </summary>
+        public Module[] ListModules()
+        {
+            List<Module> result = new List<Module>();
+            foreach (Unit u in units)
+            {
+                result.AddRange(u.ListModules());
+            }
+            return result.ToArray();
+        }
+
+        /// <summary>
+        /// Ajoute un examen à la liste (section 8 du TP)
+        /// </summary>
+        public void AddExam(Exam exam)
+        {
+            if (exam == null) throw new ArgumentNullException(nameof(exam));
+            exams.Add(exam);
         }
 
 

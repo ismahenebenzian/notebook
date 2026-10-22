@@ -48,7 +48,7 @@
         <!-- 5. Afficher les moyennes (à Droite) -->
         <Button Grid.Row="2" Grid.Column="2"
                 Content="Afficher les moyennes"
-                Margin="20" />
+                Margin="20" Click="GoListExams_Click" />
 
     </Grid>
 </Window>

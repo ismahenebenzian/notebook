@@ -16,10 +16,18 @@ namespace NoteBook
 
         private void DrawExams()
         {
+            // 1. Remplir la liste des examens
             exams.Items.Clear();
             foreach (Exam e in notebook.ListExams())
             {
                 exams.Items.Add(e);
+            }
+
+            // 2. Remplir la liste des moyennes
+            scores.Items.Clear();
+            foreach (AvgScore avg in notebook.ComputeScores())
+            {
+                scores.Items.Add(avg);
             }
         }
 

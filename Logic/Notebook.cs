@@ -64,6 +64,47 @@ namespace Logic
             return exams.ToArray();
         }
 
+        public AvgScore[] ComputeScores()
+        {
+            Exam[] tousLesExamens = ListExams();
+            var result = new List<AvgScore>();
+            var moyennesUE = new List<AvgScore>();
+
+            foreach (Unit ue in units)
+            {
+                AvgScore[] moyennesModules = ue.ComputeAverages(tousLesExamens);
+
+                // 1. Ajouter les moyennes des modules
+                result.AddRange(moyennesModules);
+
+                // 2. Calculer et ajouter la moyenne de l'UE
+                if (moyennesModules.Length > 0)
+                {
+                    float totalCoef = moyennesModules.Sum(m => m.Element.Coef);
+                    if (totalCoef > 0)
+                    {
+                        float moyUE = moyennesModules.Sum(m => m.Average * m.Element.Coef) / totalCoef;
+                        var avgUE = new AvgScore(moyUE, ue);
+                        moyennesUE.Add(avgUE);
+                        result.Add(avgUE);
+                    }
+                }
+            }
+
+            // 3. Calculer et ajouter la moyenne générale
+            if (moyennesUE.Count > 0)
+            {
+                float totalCoef = moyennesUE.Sum(u => u.Element.Coef);
+                if (totalCoef > 0)
+                {
+                    float moyGenerale = moyennesUE.Sum(u => u.Average * u.Element.Coef) / totalCoef;
+                    var elementGeneral = new EducationalElement("Moyenne Générale", 1);
+                    result.Add(new AvgScore(moyGenerale, elementGeneral));
+                }
+            }
+
+            return result.ToArray();
+        }
         #endregion
     }
 }

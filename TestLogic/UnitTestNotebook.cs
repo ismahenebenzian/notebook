@@ -52,5 +52,26 @@ namespace TestLogic
             var units = nb.ListUnits();
             Assert.Empty(units);
         }
+
+        [Fact]
+        public void ListExams_RetourneTousLesExamens()
+        {
+            // Arrange (Préparation)
+            Notebook nb = new Notebook();
+            Exam e1 = new Exam();
+            e1.Score = 15; // Adapte selon ta classe Exam
+            Exam e2 = new Exam();
+            e2.Score = 12;
+
+            // Act (Action)
+            nb.AddExam(e1);
+            nb.AddExam(e2);
+            Exam[] result = nb.ListExams();
+
+            // Assert (Vérification)
+            Assert.Equal(2, result.Length);
+            Assert.Same(e1, result[0]);
+            Assert.Same(e2, result[1]);
+        }
     }
 }

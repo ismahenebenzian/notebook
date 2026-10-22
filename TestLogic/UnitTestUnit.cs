@@ -1,7 +1,6 @@
 ﻿using Logic;
-using System;
 using System.Collections.Generic;
-using System.Text;
+using Xunit;
 
 namespace TestLogic
 {
@@ -10,8 +9,13 @@ namespace TestLogic
         [Fact]
         public void TestUnitCreation()
         {
+            // On crée une unité
             Unit unit = new Unit();
+
+            // On demande la liste des modules
             var list = unit.ListModules();
+
+            // On vérifie qu'elle est vide et non nulle
             Assert.Empty(list);
         }
     }

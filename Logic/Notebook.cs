@@ -59,6 +59,10 @@ namespace Logic
             exams.Add(exam);
         }
 
+        public Exam[] ListExams()
+        {
+            return exams.ToArray();
+        }
 
         #endregion
     }

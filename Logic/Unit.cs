@@ -11,26 +11,22 @@ namespace Logic
     {
         #region Attributes
         private List<Module> modules = new List<Module>();
+
         public Module[] ListModules()
         {
             return modules.ToArray();
         }
 
+        public void Add(Module m)
+        {
+            modules.Add(m);
+        }
+
         #endregion
 
         #region Operations
-        /// <summary>
-        /// Retourne la liste des modules de unité
-        /// </summary>
-        /// <returns>Tableau de modules</returns>
-
-
         public Unit()
         {
-            Module test = new Module();
-            test.Name = "test";
-            test.Coef = 1;
-            modules.Add(test);
         }
         #endregion
     }

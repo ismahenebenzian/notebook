@@ -1,7 +1,8 @@
 ﻿using Logic;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;   
+using System.Windows.Input;
 
 namespace NoteBook
 {
@@ -28,10 +29,7 @@ namespace NoteBook
             if (units.SelectedItem is Unit u)
             {
                 EditElementWindow third = new EditElementWindow(u);
-                if (third.ShowDialog() == true)
-                {
-                    DrawUnits();   
-                }
+                if (third.ShowDialog() == true) DrawUnits();
             }
         }
 
@@ -47,42 +45,68 @@ namespace NoteBook
                     DrawUnits();
                 }
             }
-            catch (Exception x)
-            {
-                MessageBox.Show(x.Message);
-            }
+            catch (Exception x) { MessageBox.Show(x.Message); }
         }
+
         private void RemoveUnit(object sender, RoutedEventArgs e)
         {
             try
-            {       
+            {
                 if (units.SelectedItem is Unit unit)
                 {
                     notebook.RemoveUnit(unit);
                     DrawUnits();
+                    Modules.Items.Clear();
                 }
             }
-            catch (Exception x)
-            {
-                MessageBox.Show(x.Message);
-            }
+            catch (Exception x) { MessageBox.Show(x.Message); }
         }
 
         private void DrawModules()
         {
+            Modules.Items.Clear();
             if (units.SelectedItem is Unit unit)
             {
-                var list = unit.ListModules();
-                Modules.Items.Clear();
-                foreach (Module m in list)
+                foreach (Module m in unit.ListModules())
                     Modules.Items.Add(m);
             }
         }
+
         private void SelectUnit(object sender, SelectionChangedEventArgs e)
         {
             DrawModules();
         }
 
-        
+        private void AddModule(object sender, RoutedEventArgs e)
+        {
+            if (units.SelectedItem is Unit selectedUnit)
+            {
+                try
+                {
+                    Module newModule = new Module();
+                    EditElementWindow editWindow = new EditElementWindow(newModule);
+                    if (editWindow.ShowDialog() == true)
+                    {
+                        selectedUnit.Add(newModule);
+                        DrawModules();
+                    }
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
+            }
+            else MessageBox.Show("Sélectionnez d'abord une UE à gauche.");
+        }
+
+        private void RemoveModule(object sender, RoutedEventArgs e)
+        {
+            if (units.SelectedItem is Unit selectedUnit && Modules.SelectedItem is Module selectedModule)
+            {
+                try
+                {
+                    selectedUnit.Remove(selectedModule); 
+                    DrawModules();
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
+            }
+        }
     }
 }

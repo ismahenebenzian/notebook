@@ -33,6 +33,18 @@ namespace NoteBook
             EditUnitsWindow second = new EditUnitsWindow(notebook);
             second.Show();
         }
+
+        private void GoListExams_Click(object sender, RoutedEventArgs e)
+        {
+            ListExamsWindow window = new ListExamsWindow(this.notebook);
+            window.Show();
+        }
+
+        private void GoEditExam(object sender, RoutedEventArgs e)
+        {
+            EditExamWindow window = new EditExamWindow(this.notebook);
+            window.ShowDialog();
+        }
         #endregion
     }
 }

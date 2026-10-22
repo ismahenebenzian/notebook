@@ -5,39 +5,50 @@
         WindowStartupLocation="CenterScreen">
 
     <Grid>
-        <!-- 3 colonnes -->
+        <!-- 3 colonnes (Gauche, Centre, Droite) -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <!-- 3 lignes -->
+        <!-- 3 lignes (Haut, Milieu, Bas) -->
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Boutons haut -->
-        <Button Grid.Row="0" Grid.Column="0"
+        <!-- LIGNE DU HAUT -->
+        <!-- 1. List Exams (à Gauche) -->
+        <Button Grid.Row="2"
+                Content="List Exams"
+                Margin="20,20,20,20" 
+                Click="GoListExams_Click" />
+
+        <!-- 2. Saisir les matières (au Centre) -->
+        <Button
                 Content="Saisir les matières"
-                Margin="20" 
+                Margin="20,20,20,20" 
                 Click="GoEditUnits" />
+
+        <!-- 3. Rentrer un examen (à Droite) -->
         <Button Grid.Row="0" Grid.Column="2"
                 Content="Rentrer un examen"
                 Margin="20"
-                />
+                Click="GoEditExam" />
 
-        <!-- Image -->
+        <!-- LIGNE DU MILIEU -->
+        <!-- 4. L'Image (au Centre) -->
         <Image Grid.Row="1" Grid.Column="1"
                Source="/image/notebook.png"
                Margin="20"/>
 
-        <!-- Bouton bas -->
-        <Button Grid.Row="2" Grid.Column="1"
+        <!-- LIGNE DU BAS -->
+        <!-- 5. Afficher les moyennes (à Droite) -->
+        <Button Grid.Row="2" Grid.Column="2"
                 Content="Afficher les moyennes"
-                Margin="20"></Button>
+                Margin="20" />
 
     </Grid>
 </Window>

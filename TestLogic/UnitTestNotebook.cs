@@ -59,7 +59,7 @@ namespace TestLogic
             // Arrange (Préparation)
             Notebook nb = new Notebook();
             Exam e1 = new Exam();
-            e1.Score = 15; // Adapte selon ta classe Exam
+            e1.Score = 15; 
             Exam e2 = new Exam();
             e2.Score = 12;
 

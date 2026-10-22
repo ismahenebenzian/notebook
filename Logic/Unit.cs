@@ -28,6 +28,10 @@ namespace Logic
         public Unit()
         {
         }
+        public void Remove(Module m)
+        {
+            modules.Remove(m);
+        }
         #endregion
     }
 }
